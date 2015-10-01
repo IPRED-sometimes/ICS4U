@@ -50,5 +50,4 @@ public class Label {
 		output = (output1+ "/n" + output2 +"/n" + output3);
 		return output;
 	}
-	
 }

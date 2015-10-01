@@ -6,48 +6,77 @@ package pRedwood;
  * @author 343171898
  *
  */
+
 public class ContestantInfo {
-	private String first, last, strName, strNum, unit, city, prov, postCode, phone;
-	private int dob, mob, yob;
-	public ContestantInfo() {
-		
+	private String first, last, strName, strNum, unit, city, prov, postCode, phone, ans2, ans3;
+	private int dob, mob, yob, ans1;
+	public ContestantInfo() {	
+	}
+	public ContestantInfo(setDOB, setMOB, setYOB, setFirst, setLast, setStrName){
 	}
 
-//	public static void main(String[] args) {
-//		System.out.print("Please fill in the following fields below.");
-//		Scanner scan = new Scanner(System.in);
-//		System.out.println("First Name:");
-//		String first = scan.nextLine();
-//		System.out.println("Last Name: ");
-//		String last = scan.nextLine();
-//		System.out.println("Street name: ");
-//		String strName = scan.nextLine();
-//		System.out.println("Street number: ");
-//		String strNum = scan.nextLine();
-//		System.out.println("Address unit: ");
-//		String unit = scan.nextLine();	
-//		System.out.println("City: ");
-//		String city = scan.nextLine();
-//		System.out.println("Province(ex. ON): ");
-//		String prov = scan.nextLine();
-//		System.out.println("Postal code (No spaces): ");
-//		String postCode = scan.nextLine();
-//		System.out.println("Phone number (No spaces or dashes): ");
-//		String phone = scan.nextLine();
-//		System.out.println("Day of Birth(dd): ");
-//		String dob = scan.nextLine();
-//		System.out.println("Month of Birth(mm): ");
-//		String mob = scan.nextLine();
-//		System.out.println("Year of Birth(yyyy): ");
-//		String yob = scan.nextLine();
-//
-//	}
+	
+/** 
+ * @param mob
+ */
+	public void setMOB(int mob) throws InvalidInput {
+		if (mob>= 1 || mob<=12){
+			String validMonth = ("correct");}
+		else{ 
+			System.out.println("That is not a valid month of birth.");}
+		this.mob = mob;
+	}
+/**
+ * 
+ * @return
+ */
+	public  int getMOB(){
+		return this.mob;
+	}
+/**
+ * 
+ * @param dob
+ */
+	public void setDOB(int dob) throws InvalidInput {
+		
+		if (dob>= 1 || dob<=31){
+			String validDay = ("correct");}
+		else{ 
+			System.out.println("That is not a valid day of birth for this month.");}
+		this.dob = dob;
+	}
+/**
+ * 
+ * @return
+ */
+	public  int getDOB(){
+		return this.dob;
+	}
+
+/**
+ * 
+ * @param yob
+ */
+	public void setYOB(int yob) throws InvalidInput {
+		if (dob>= 1 || dob<=2015){
+			String validDay = ("correct");}
+		else{ 
+			System.out.println("That is not a valid year of birth.");}
+		this.yob = yob;
+	}
+/**
+ * 
+ * @return
+ */
+	public  int getYOB(){
+		return this.yob;
+	}
 /**
  * 	
  * @param first
  */
 	public void setFirst(String first) {
-		String firstName = first.substring(0, 1).toUpperCase() + first.substring(1);
+		String firstName = first.substring(0, 1).toUpperCase() + first.substring(1, first.length());
 		this.first = firstName;
 	}
 /**
@@ -63,22 +92,23 @@ public class ContestantInfo {
  * @param last
  */
 	public void setLast(String last) {
-		String lastName = last.substring(0, 1).toUpperCase() + last.substring(1);
-		this.last = lastName;
+		String lastName = last.substring(0, 1).toUpperCase() + last.substring(1, last.length());
+		this.first = lastName;
 	}
 /**
  * 	
  * @return
  */
-	public  String getLast(){
-		return this.last;
+	public String getLast() {
+	
+		return this.first;
 	}
 /**
  * 	
  * @param strName
  */
 	public void setStrName(String strName) {
-		String streetName = strName.substring(0, 1).toUpperCase() + strName.substring(1);
+		String streetName = strName.substring(0, 1).toUpperCase() + strName.substring(1, strName.length());
 		this.strName = streetName;
 	}
 /**
@@ -122,7 +152,7 @@ public class ContestantInfo {
  * @param city
  */
 	public void setCity(String city) {
-		String City = city.substring(0, 1).toUpperCase() + city.substring(1);
+		String City = city.substring(0, 1).toUpperCase() + city.substring(1, city.length());
 		this.city = City;
 	}
 /**
@@ -153,11 +183,11 @@ public class ContestantInfo {
  */
 	public void setPostCode(String postCode) throws InvalidInput {
 		if (postCode.length()>6){
-			throw new InvalidInput("Postal code must be only 6 characters. Please try again.");
+			throw new InvalidInput("Postal code entered is too long. It must be 6 characters. Please try again.");
 		}
 		
 		else if (postCode.length()<6){
-			throw new InvalidInput("Postal code entered is too short.Please try again.");
+			throw new InvalidInput("Postal code entered is too short. It must be 6 characters. Please try again.");
 		}
 		this.postCode = postCode;	
 	}
@@ -183,47 +213,55 @@ public class ContestantInfo {
 	public  String getPhone(){
 		return this.phone;
 	}
+	
 /**
  * 
- * @param dob
+ * @param ans1
  */
-	public void setDOB(int dob) throws InvalidInput {
-		
-		this.dob = dob;
+	public void setAns1(int ans1) {
+		this.ans1 = ans1; }
+/**
+ * 
+ * @return
+ */
+	public  int getAns1(){
+			return this.ans1;
+	}
+/**
+ * 	
+ * @param ans2
+ */
+	public void setAns2(String ans2) {
+		this.ans2 = ans2;}
+/**
+ * 	
+ * @return
+ */
+	public  String getAns2(){
+			return this.ans2;
+	}
+/**
+ * 
+ * @param ans3
+ */
+	public void setAns3(String ans3) {
+		this.ans3 = ans3;
 	}
 /**
  * 
  * @return
  */
-	public  int getDOB(){
-		return this.dob;
-	}
-/**
- * 
- * @param mob
- */
-	public void setMOB(int mob) {
-		this.mob = mob;
+	public  String getAns3(){
+		return this.ans3;
 	}
 /**
  * 
  * @return
  */
-	public  int getMOB(){
-		return this.mob;
-	}
-/**
- * 
- * @param yob
- */
-	public void setYOB(int yob) {
-		this.yob = yob;
-	}
-/**
- * 
- * @return
- */
-	public  int getYOB(){
-		return this.yob;
+	public String toString() {
+	String orderedCIValues = (dob + " " + mob + " " + yob + " " + first + " " + last + " " + strName
+				+ " " + strNum + " " + unit + " " + city + " " + prov + " " + postCode + " " + phone + " "
+				+ ans1 + " " + ans2 + " " + ans3 + " ");
+		return orderedCIValues;
 	}
 }
