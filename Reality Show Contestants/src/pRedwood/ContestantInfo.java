@@ -8,11 +8,9 @@ package pRedwood;
  */
 
 public class ContestantInfo {
-	private String first, last, strName, strNum, unit, city, prov, postCode, phone, ans2, ans3;
-	private int dob, mob, yob, ans1;
+	private String first, last, strName, strNum, unit, city, prov, postCode, phone;
+	private int dob, mob, yob;
 	public ContestantInfo() {	
-	}
-	public ContestantInfo(setDOB, setMOB, setYOB, setFirst, setLast, setStrName){
 	}
 
 	
@@ -21,7 +19,7 @@ public class ContestantInfo {
  */
 	public void setMOB(int mob) throws InvalidInput {
 		if (mob>= 1 || mob<=12){
-			String validMonth = ("correct");}
+			String validMonth = ("valid");}
 		else{ 
 			System.out.println("That is not a valid month of birth.");}
 		this.mob = mob;
@@ -40,7 +38,7 @@ public class ContestantInfo {
 	public void setDOB(int dob) throws InvalidInput {
 		
 		if (dob>= 1 || dob<=31){
-			String validDay = ("correct");}
+			String validDay = ("valid");}
 		else{ 
 			System.out.println("That is not a valid day of birth for this month.");}
 		this.dob = dob;
@@ -59,7 +57,7 @@ public class ContestantInfo {
  */
 	public void setYOB(int yob) throws InvalidInput {
 		if (dob>= 1 || dob<=2015){
-			String validDay = ("correct");}
+			String validYear = ("valid");}
 		else{ 
 			System.out.println("That is not a valid year of birth.");}
 		this.yob = yob;
@@ -216,52 +214,11 @@ public class ContestantInfo {
 	
 /**
  * 
- * @param ans1
- */
-	public void setAns1(int ans1) {
-		this.ans1 = ans1; }
-/**
- * 
- * @return
- */
-	public  int getAns1(){
-			return this.ans1;
-	}
-/**
- * 	
- * @param ans2
- */
-	public void setAns2(String ans2) {
-		this.ans2 = ans2;}
-/**
- * 	
- * @return
- */
-	public  String getAns2(){
-			return this.ans2;
-	}
-/**
- * 
- * @param ans3
- */
-	public void setAns3(String ans3) {
-		this.ans3 = ans3;
-	}
-/**
- * 
- * @return
- */
-	public  String getAns3(){
-		return this.ans3;
-	}
-/**
- * 
  * @return
  */
 	public String toString() {
 	String orderedCIValues = (dob + " " + mob + " " + yob + " " + first + " " + last + " " + strName
-				+ " " + strNum + " " + unit + " " + city + " " + prov + " " + postCode + " " + phone + " "
-				+ ans1 + " " + ans2 + " " + ans3 + " ");
+				+ " " + strNum + " " + unit + " " + city + " " + prov + " " + postCode + " " + phone);
 		return orderedCIValues;
 	}
 }
