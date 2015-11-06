@@ -12,27 +12,29 @@ import java.util.Scanner;
 
 
 
-public class ContestantAge {
+public class ContestantInput {
 	/**
 	 * Makes ContestantAge objects
 	 */
-	public ContestantAge() {
+	public ContestantInput() {
 		
 	}
 
 	/**
 	 * @param args
 	 */
+	static boolean ageOf = false;
 	
 	public static void main(String[] args) {
 		boolean flag = false;
+
 /**
  * 
  */
 	do{
 		flag = false;
 		System.out.println("Please fill in the following fields below.");
-		System.out.println("All contestants must be 18 years of age or older by December 31st, 2015.");
+		System.out.println("All contestants must be 18 years of age or older by November 15th, 2015.");
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		
@@ -57,7 +59,7 @@ public class ContestantAge {
 					flag = true;
 					System.out.println("That is not a number. Please re-enter day of birth.");
 				}
-			} while (flag);
+			} while (flag & ageOf);
 /**
  * 
  */
@@ -78,7 +80,7 @@ public class ContestantAge {
 					flag = true;
 				System.out.println("That is not a number. Please re-enter month of birth.");
 				}
-			} while (flag);
+			} while (flag & ageOf);
 		
 /**
  * 		
@@ -99,7 +101,7 @@ public class ContestantAge {
 					flag = true;
 					System.out.println("That is not a number. Please re-enter year of birth.");
 				}
-			} while (flag);
+			} while (flag & ageOf);
 		
 		
 		System.out.println("First Name:");
@@ -190,13 +192,47 @@ public class ContestantAge {
 		System.out.println("Would you like to enter another contestant?(Y/N): ");
 		String anotherContestant = scan.nextLine();
 		
-	 }while(flag);
+	 }while(flag & ageOf);
 	}
-	
-	public String findAge() {
-		if (contestant1.getYOB() > 1997){
-			
+/**
+ * 	Will check to see if contestant is at least 18 years of age by the deadline of November 15, 2015.
+ * @return
+ */
+	public boolean findAge() {
+		ContestantInfo contestant1 = new ContestantInfo();
+		
+		int bornDay = contestant1.getDOB();
+		int bornMonth = contestant1.getMOB();
+		int bornYear = contestant1.getYOB();
+		int qualYr = (bornYear - 1997);
+		
+		if (bornYear > 1997){
+			System.out.println("You are to young to enter the contest. Please enter again in"+ qualYr + "years.");
+			ageOf = true;
 		}
+		
+		else{
+			ageOf = false;
+		}
+		
+		if (bornMonth> 11 & bornYear > 1997){
+			System.out.println("You are to young to enter the contest. Please enter again in"+ qualYr + "years.");
+			ageOf = true;
+		}
+		
+		else {
+			ageOf = false;
+		}
+		
+		if (bornDay >15 & bornMonth> 11 & bornYear > 1997){
+			System.out.println("You are to young to enter the contest. Please enter again in"+ qualYr + "years.");
+			ageOf = true;
+		}
+		
+		else {
+			ageOf= true;
+		}
+	 return ageOf;
 	}
 	
 }

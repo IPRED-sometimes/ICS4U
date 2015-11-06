@@ -66,7 +66,7 @@ public class ContestantInfo {
  * 
  * @return
  */
-	public  int getYOB(){
+	public int getYOB(){
 		return this.yob;
 	}
 /**
